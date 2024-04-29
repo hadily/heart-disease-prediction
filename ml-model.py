@@ -59,6 +59,14 @@ def train_model():
 # Train the model when the server starts
 rf_model = train_model()
 
+@app.route('/patient/<int:patient_id>', methods=['GET'])
+def get_patient_info(patient_id):
+    df = load_data()
+    patient_data = df[df['patientid'] == patient_id].to_dict(orient='records')
+    if not patient_data:
+        return jsonify({'error': 'Patient not found'}), 404
+    return jsonify(patient_data[0])
+
 
 @app.route('/predict', methods=['POST'])
 def predict():
@@ -70,13 +78,7 @@ def predict():
     return jsonify({'prediction': prediction_label})
 
 
-@app.route('/patient/<int:patient_id>', methods=['GET'])
-def get_patient_info(patient_id):
-    df = load_data()
-    patient_data = df[df['patientid'] == patient_id].to_dict(orient='records')
-    if not patient_data:
-        return jsonify({'error': 'Patient not found'}), 404
-    return jsonify(patient_data[0])
+
 
 
 
