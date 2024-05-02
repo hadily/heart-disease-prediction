@@ -90,9 +90,9 @@ def predict():
     data['gender'] = 0  # Change gender to a constant value
     data['age'] = 30  # Change gender to a constant value
     data['chestpain'] = 0 # Change gender to a constant value
-    data['serumcholestrol'] = 2000  # Change gender to a constant value
+    data['serumcholestrol'] = 200  # Change gender to a constant value
     data['restingrelectro'] = 2  # Change gender to a constant value
-    data['fastingbloodsugar'] = 2  # Change gender to a constant value
+    data['fastingbloodsugar'] = 1  # Change gender to a constant value
     data['slope'] = 1  # Change gender to a constant value
     data.pop('device', None)
     data.pop('timestamp', None)
